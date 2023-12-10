@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:6-jammy
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/init.js:/docker-entrypoint-initdb.d/init.js:ro
+    environment:
+            MONGO_INITDB_ROOT_USERNAME:  root
+            MONGO_INITDB_ROOT_PASSWORD: 12345
+            MONGO_INITDB_DATABASE: purchase
+
+networks:
+  default:
+    driver: bridge
+
+
