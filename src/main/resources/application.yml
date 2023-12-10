@@ -1,0 +1,21 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: purchase
+  data:
+    mongodb:
+      database: purchase
+      uri: mongodb://user:1234@localhost:27017/purchase?retryWrites=true&w=majority&authSource=purchase
+
+integration:
+  treasury:
+    name: TreasuryService
+    host: https://api.fiscaldata.treasury.gov/services/api/fiscal_service/
+    endpoint: v1/accounting/od/rates_of_exchange
+
+springdoc:
+  version: 1.7
+  swagger-ui:
+    use-root-path: true
